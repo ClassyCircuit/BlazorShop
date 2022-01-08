@@ -4,9 +4,9 @@ namespace BlazorShop.Data.DataManagers
 {
     public class ProductDataManager
     {
-        private readonly DbContext _context;
+        private readonly Context _context;
 
-        public ProductDataManager(DbContext context)
+        public ProductDataManager(Context context)
         {
             _context = context;
         }

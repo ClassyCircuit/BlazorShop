@@ -1,7 +1,11 @@
 {
   "iisSettings": {
     "windowsAuthentication": false,
-    "anonymousAuthentication": true,
+    "anonymousAuthentication": false,
+    "iis": {
+      "applicationUrl": "https://localhost/BlazorShop",
+      "sslPort": 443
+    },
     "iisExpress": {
       "applicationUrl": "http://localhost:29331",
       "sslPort": 44343
@@ -10,16 +14,24 @@
   "profiles": {
     "BlazorShop.Web": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
-      "applicationUrl": "https://localhost:7131;http://localhost:5131",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:7131;http://localhost:5131",
+      "dotnetRunMessages": true
     },
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Development": {
+      "commandName": "IIS",
+      "workingDirectory": "C:\\Code\\BlazorShop\\BlazorShop.Web\\bin",
+      "launchUrl": "https://localhost/BlazorShop",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

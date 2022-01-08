@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -25,6 +25,11 @@
     <ProjectReference Include="..\BlazorShop.Common\BlazorShop.Common.csproj" />
     <ProjectReference Include="..\BlazorShop.Data\BlazorShop.Data.csproj" />
     <ProjectReference Include="..\BlazorShop.Web\BlazorShop.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Business\" />
+    <Folder Include="Web\" />
   </ItemGroup>
 
 </Project>

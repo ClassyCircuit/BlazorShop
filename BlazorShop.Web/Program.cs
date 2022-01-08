@@ -12,10 +12,10 @@ builder.Configuration.Bind(cfg);
 builder.Services.Configure<ShopConfig>(builder.Configuration);
 builder.Services.AddSingleton<ShopConfig>(cfg);
 
-builder.Services.AddDbContext<BlazorShop.Data.DbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 builder.Services.AddDataLayer(new DataConfig()
 {
-    ImageDirectoryPath = cfg.WebRootPath
+  ImageDirectoryPath = cfg.WebRootPath
 });
 builder.Services.AddBusinessLayer();
 
@@ -29,9 +29,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+  app.UseExceptionHandler("/Error");
+  // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+  app.UseHsts();
 }
 
 app.UseHttpsRedirection();

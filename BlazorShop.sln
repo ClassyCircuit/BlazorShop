@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShop.Web", "BlazorShop.Web\BlazorShop.Web.csproj", "{0413C52C-B2B7-4450-8D96-C0FAF4061520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShop.Data", "BlazorShop.Data\BlazorShop.Data.csproj", "{DE806D51-A454-4295-B842-B85835DA2D4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShop.Data", "BlazorShop.Data\BlazorShop.Data.csproj", "{DE806D51-A454-4295-B842-B85835DA2D4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShop.Business", "BlazorShop.Business\BlazorShop.Business.csproj", "{5A75500D-740E-4C2F-81E3-39F7C4CE2F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShop.Business", "BlazorShop.Business\BlazorShop.Business.csproj", "{5A75500D-740E-4C2F-81E3-39F7C4CE2F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShop.Common", "BlazorShop.Common\BlazorShop.Common.csproj", "{376F8240-8160-4B80-BFA8-B75DBDDFDA7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShop.Common", "BlazorShop.Common\BlazorShop.Common.csproj", "{376F8240-8160-4B80-BFA8-B75DBDDFDA7C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{813EE965-DF0B-446C-A3A7-B832293529D6}"
 EndProject
@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{C41F40DC-7469-4C02-B508-55CC9B1F502A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "Tests.Unit\Tests.Unit.csproj", "{95006130-AF38-4EBB-BC73-7E7F76BF0E05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests.Unit", "Tests.Unit\Tests.Unit.csproj", "{95006130-AF38-4EBB-BC73-7E7F76BF0E05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

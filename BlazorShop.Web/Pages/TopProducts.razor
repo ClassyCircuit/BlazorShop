@@ -1,0 +1,40 @@
+﻿@page "/topproducts"
+
+@using BlazorShop.Business.Services
+@using BlazorShop.Data.Structures
+@inject ProductService _productService
+
+<h3>Top Products</h3>
+
+@if(_node != null)
+{
+    <button @onclick="PrevImage">Prev</button>  
+    <button @onclick="NextImage">Next</button>  
+    <br />
+    <img src="@_node.Value" width="500"/>
+}
+
+@code {
+  private LinkedListCircular<string> _topProducts;
+  private Node<string> _node;
+
+  private void NextImage()
+  {
+    _node = _node.Next;
+  }
+
+  private void PrevImage()
+  {
+    _node = _node.Prev;
+  }
+
+  protected override void OnInitialized()
+  {
+    _topProducts = _productService.GetTopProductImages();
+    if(_topProducts != null && _topProducts.Head != null)
+    {
+        _node = _topProducts.Head;
+    }
+  }
+
+}

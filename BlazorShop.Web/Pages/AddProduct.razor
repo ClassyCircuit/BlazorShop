@@ -1,0 +1,56 @@
+﻿@page "/addproduct"
+
+@using BlazorShop.Business.Services
+@using BlazorShop.Data.Tables
+@using BlazorShop.Web.ViewModels
+
+@inject ProductService _productService
+@inject ImageService _imageService
+
+<h3>AddProduct</h3>
+
+<EditForm Model="@model" OnValidSubmit="@HandleValidSubmit" >
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <InputText id="name" @bind-Value="model.Name" />
+    <InputNumber id="price" @bind-Value="model.Price" />
+    <InputSelect id="category" @bind-Value="model.CategoryId">
+        <option>Choose Category</option>
+        @foreach(var category in _categories)
+        {
+            <option value="@category.Id">@category.Name</option>
+        }
+    </InputSelect>
+    <InputText id="img" @bind-Value="model.File" />
+
+    <button type="submit">Submit</button>
+</EditForm>
+
+@code {
+  private ProductAddModel model = new ProductAddModel();
+  private Category[] _categories;
+
+  private async Task HandleValidSubmit()
+  {
+    //string path = await _imageService.SaveImage(model.File);
+    _productService.AddProduct(new Product()
+      {
+        Name = model.Name,
+        Price = model.Price,
+        Category = _categories.Single(t => t.Id == int.Parse(model.CategoryId)),
+        ImagePath = $"/images/products/{model.File}"
+    });
+
+  }
+
+  protected override void OnInitialized()
+  {
+    _categories = _productService.GetProductCategories();
+  }
+
+  //private async Task OnChooseFile(InputFileChangeEventArgs arg)
+  //{
+  //  arg.File
+  //}
+}
