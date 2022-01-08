@@ -4,17 +4,17 @@ namespace BlazorShop.Data.DataManagers
 {
     public class FileManager
     {
-        private readonly string _imageDirectoryPath;
+        private readonly DataConfig _dataConfig;
 
-        public FileManager(string imageDirectoryPath)
+        public FileManager(DataConfig dataConfig)
         {
-            _imageDirectoryPath = imageDirectoryPath;
+            _dataConfig = dataConfig;
         }
 
         public async Task<string> SaveFile(IFormFile file, string name)
         {
             string relativePath = Path.Combine("images", "products", name);
-            string fullPath = Path.Combine(_imageDirectoryPath, relativePath);
+            string fullPath = Path.Combine(_dataConfig.ImageDirectoryPath, relativePath);
             using (Stream fileStream = new FileStream(fullPath, FileMode.Create))
             {
                 await file.CopyToAsync(fileStream);

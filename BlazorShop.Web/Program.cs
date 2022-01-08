@@ -1,8 +1,23 @@
+using BlazorShop.Business;
+using BlazorShop.Common;
+using BlazorShop.Data;
 using BlazorShop.Web.Data;
-using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Web;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var cfg = new ShopConfig();
+cfg.WebRootPath = builder.Environment.WebRootPath;
+builder.Configuration.Bind(cfg);
+builder.Services.Configure<ShopConfig>(builder.Configuration);
+builder.Services.AddSingleton<ShopConfig>(cfg);
+
+builder.Services.AddDbContext<BlazorShop.Data.DbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+builder.Services.AddDataLayer(new DataConfig()
+{
+    ImageDirectoryPath = cfg.WebRootPath
+});
+builder.Services.AddBusinessLayer();
 
 // Add services to the container.
 builder.Services.AddRazorPages();

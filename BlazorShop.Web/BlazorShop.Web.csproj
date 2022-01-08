@@ -13,4 +13,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BlazorShop.Business\BlazorShop.Business.csproj" />
+    <ProjectReference Include="..\BlazorShop.Common\BlazorShop.Common.csproj" />
+    <ProjectReference Include="..\BlazorShop.Data\BlazorShop.Data.csproj" />
+  </ItemGroup>
+
 </Project>
