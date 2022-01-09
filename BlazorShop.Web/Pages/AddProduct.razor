@@ -3,6 +3,8 @@
 @using BlazorShop.Business.Services
 @using BlazorShop.Data.Tables
 @using BlazorShop.Web.ViewModels
+@using Radzen.Blazor
+@using System.IO
 
 @inject ProductService _productService
 @inject ImageService _imageService
@@ -22,8 +24,7 @@
             <option value="@category.Id">@category.Name</option>
         }
     </InputSelect>
-    <InputText id="img" @bind-Value="model.File" />
-
+    <InputFile id="img"  OnChange="HandleFile"/>
     <button type="submit">Submit</button>
 </EditForm>
 
@@ -33,13 +34,13 @@
 
   private async Task HandleValidSubmit()
   {
-    //string path = await _imageService.SaveImage(model.File);
+    if (model.FilePath == null) return;
     _productService.AddProduct(new Product()
-      {
+        {
         Name = model.Name,
         Price = model.Price,
         Category = _categories.Single(t => t.Id == int.Parse(model.CategoryId)),
-        ImagePath = $"/images/products/{model.File}"
+        ImagePath = model.FilePath
     });
 
   }
@@ -49,8 +50,8 @@
     _categories = _productService.GetProductCategories();
   }
 
-  //private async Task OnChooseFile(InputFileChangeEventArgs arg)
-  //{
-  //  arg.File
-  //}
+  private async Task HandleFile(InputFileChangeEventArgs changeEvent)
+  {
+    model.FilePath = await _imageService.SaveImage(changeEvent.File);
+  }
 }

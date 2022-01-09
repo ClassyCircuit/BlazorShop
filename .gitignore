@@ -10,6 +10,9 @@
 *.userosscache
 *.sln.docstates
 
+# Uploaded files
+**/wwwroot/images/products/
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

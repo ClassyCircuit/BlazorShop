@@ -13,6 +13,6 @@ namespace BlazorShop.Web.ViewModels
 		[Required]
 		public string CategoryId { get; set; }
 
-		public string File { get; set; }
+		public string FilePath { get; set; }
 	}
 }
