@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Components.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace BlazorShop.Web.ViewModels
 {
@@ -13,6 +14,6 @@ namespace BlazorShop.Web.ViewModels
 		[Required]
 		public string CategoryId { get; set; }
 
-		public string FilePath { get; set; }
+		public IBrowserFile[] Images { get; set; }
 	}
 }

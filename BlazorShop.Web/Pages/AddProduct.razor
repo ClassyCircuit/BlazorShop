@@ -52,6 +52,6 @@
 
   private async Task HandleFile(InputFileChangeEventArgs changeEvent)
   {
-    model.FilePath = await _imageService.SaveImage(changeEvent.File);
+    model.Images = changeEvent.GetMultipleFiles(changeEvent.FileCount);
   }
 }

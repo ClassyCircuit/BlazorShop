@@ -1,5 +1,4 @@
-﻿using BlazorShop.Business.Exceptions;
-using BlazorShop.Data.DataManagers;
+﻿using BlazorShop.Data.DataManagers;
 using Microsoft.AspNetCore.Components.Forms;
 
 namespace BlazorShop.Business.Services
@@ -13,15 +12,10 @@ namespace BlazorShop.Business.Services
 			_fileManager = fileManager;
 		}
 
-		public async Task<string> SaveImage(IBrowserFile image)
+		public async Task<string> SaveImages(IBrowserFile[] images)
 		{
-			if (image.Size <= 0)
-			{
-				throw new InvalidFileException();
-			}
-
 			var fileName = $"{Guid.NewGuid()}.jpg";
-			var fullFilePath = await _fileManager.SaveFile(image, fileName);
+			var fullFilePath = await _fileManager.SaveFiles(image, fileName);
 
 			return fullFilePath;
 		}
